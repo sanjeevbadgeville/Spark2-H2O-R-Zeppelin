@@ -98,9 +98,9 @@ val newRdd = hc.asDataFrame(hf)(sqlContext)
 ## Use the Postgres Interpreter
 - postgresql.driver.name	oracle.jdbc.driver.OracleDriver
 - postgresql.max.result	1000
-- postgresql.password	    <PASSWORD>
-- postgresql.url	        jdbc:oracle:thin:@<HOST_IP>:<HOST_PORT>:<SID>
-- postgresql.user	        <USERNAME>
+- postgresql.password	    [PASSWORD]
+- postgresql.url	        jdbc:oracle:thin:@[HOST_IP]:[HOST_PORT]:[SID]
+- postgresql.user	        [USERNAME]
 
 Dependencies
 /opt/zeppelin/current/lib/ojdbc7.jar
