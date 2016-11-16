@@ -96,27 +96,27 @@ val newRdd = hc.asDataFrame(hf)(sqlContext)
 ## Use the ojdbc7.jar in the lib folder as it has the file defaultConnectionProperties.properties file updated with oracle.jdbc.timezonAsRegion=false
 
 ## Use the Postgres Interpreter
-postgresql.driver.name	oracle.jdbc.driver.OracleDriver
-postgresql.max.result	1000
-postgresql.password	    <PASSWORD>
-postgresql.url	        jdbc:oracle:thin:@<HOST_IP>:<HOST_PORT>:<SID>
-postgresql.user	        <USERNAME>
+- postgresql.driver.name	oracle.jdbc.driver.OracleDriver
+- postgresql.max.result	1000
+- postgresql.password	    <PASSWORD>
+- postgresql.url	        jdbc:oracle:thin:@<HOST_IP>:<HOST_PORT>:<SID>
+- postgresql.user	        <USERNAME>
 
 Dependencies
 /opt/zeppelin/current/lib/ojdbc7.jar
 
 ## Test Zeppelin to access Oracle using %psql
-%psql
-SELECT * FROM DUAL
+- %psql
+- SELECT * FROM DUAL
 
 ## Test Zeppelin to access Oracle using %spark
-%spark
-sc.version
-val pdf = sqlContext.load("jdbc", Map("url" -> "jdbc:oracle:thin:<USERNAME>/<PASSWORD>@<HOST_IP>:<HOST_PORT>:<SID>", "driver" -> "oracle.jdbc.driver.OracleDriver", "dbtable" -> "dual") )
-pdf.printSchema()
-pdf.registerTempTable("pdf")
+- %spark
+- sc.version
+-- val pdf = sqlContext.load("jdbc", Map("url" -> "jdbc:oracle:thin:<USERNAME>/<PASSWORD>@<HOST_IP>:<HOST_PORT>:<SID>", "driver" -> "oracle.jdbc.driver.OracleDriver", "dbtable" -> "dual") )
+- pdf.printSchema()
+- pdf.registerTempTable("pdf")
 
-%sql SELECT count(*) FROM pdf
+- %sql SELECT count(*) FROM pdf
 
 # References
 https://www.linkedin.com/pulse/running-spark-2xx-cloudera-hadoop-distro-cdh-deenar-toraskar-cfa
