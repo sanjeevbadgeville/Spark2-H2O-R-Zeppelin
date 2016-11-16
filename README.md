@@ -112,7 +112,7 @@ Dependencies
 ## Test Zeppelin to access Oracle using %spark
 - %spark
 - sc.version
--- val pdf = sqlContext.load("jdbc", Map("url" -> "jdbc:oracle:thin:<USERNAME>/<PASSWORD>@<HOST_IP>:<HOST_PORT>:<SID>", "driver" -> "oracle.jdbc.driver.OracleDriver", "dbtable" -> "dual") )
+-- val pdf = sqlContext.load("jdbc", Map("url" -> "jdbc:oracle:thin:[USERNAME]/[PASSWORD]@[HOST_IP]:[HOST_PORT]:[SID]", "driver" -> "oracle.jdbc.driver.OracleDriver", "dbtable" -> "dual") )
 - pdf.printSchema()
 - pdf.registerTempTable("pdf")
 
