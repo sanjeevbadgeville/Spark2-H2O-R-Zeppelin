@@ -105,6 +105,11 @@ val newRdd = hc.asDataFrame(hf)(sqlContext)
 Dependencies
 /opt/zeppelin/current/lib/ojdbc7.jar
 
+## Add Oracle jdbc driver to Spark Interpreter
+
+Dependencies
+/opt/zeppelin/current/lib/ojdbc7.jar
+
 ## Test Zeppelin to access Oracle using %psql
 - %psql
 - SELECT * FROM DUAL
