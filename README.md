@@ -33,13 +33,13 @@ Download Spark: spark-2.0.1-bin-hadoop2.6.tgz
 - hdfs dfs -copyFromLocal jars/*  spark-2.0.1-bin-hadoop2.6
 
 ## Test Spark2 Installation
-$ ./bin/run-example SparkPi 10 --master yarn
-$ ./bin/spark-shell --master yarn
-$ ./bin/pyspark
+- $ ./bin/run-example SparkPi 10 --master yarn
+- $ ./bin/spark-shell --master yarn
+- $ ./bin/pyspark
 Yarn cluster mode
-$ ./bin/spark-submit --class org.apache.spark.examples.SparkPi     --master yarn     --deploy-mode cluster     --driver-memory 4g     --executor-memory 2g     --executor-cores 1     --queue thequeue     examples/jars/spark-examples*.jar     10
+- $ ./bin/spark-submit --class org.apache.spark.examples.SparkPi     --master yarn     --deploy-mode cluster     --driver-memory 4g     --executor-memory 2g     --executor-cores 1     --queue thequeue     examples/jars/spark-examples*.jar     10
 Yarn client mode
-./bin/spark-submit --class org.apache.spark.examples.SparkPi     --master yarn     --deploy-mode client     --driver-memory 4g     --executor-memory 2g     --executor-cores 1     --queue thequeue     examples/jars/spark-examples*.jar     10
+- ./bin/spark-submit --class org.apache.spark.examples.SparkPi     --master yarn     --deploy-mode client     --driver-memory 4g     --executor-memory 2g     --executor-cores 1     --queue thequeue     examples/jars/spark-examples*.jar     10
 
 # H2O Sparkling-Water Setup
 
@@ -51,7 +51,7 @@ http://h2o-release.s3.amazonaws.com/sparkling-water/rel-2.0/0/sparkling-water-2.
 - MASTER=yarn
 
 ## Test Sparkling-Water Installation
-/opt/spark/current/bin/spark-submit --master=yarn-client --class water.SparklingWaterDriver --conf "spark.yarn.am.extraJavaOptions=-XX:MaxPermSize=384m -Dhdp.version=current"  --driver-memory=8G --num-executors=3 --executor-memory=3G --conf "spark.executor.extraClassPath=-XX:MaxPermSize=384m -Dhdp.version=current”  /opt/sparkling-water/current/assembly/build/libs/sparkling-water-assembly_2.11-2.0.0-all.jar
+- /opt/spark/current/bin/spark-submit --master=yarn-client --class water.SparklingWaterDriver --conf "spark.yarn.am.extraJavaOptions=-XX:MaxPermSize=384m -Dhdp.version=current"  --driver-memory=8G --num-executors=3 --executor-memory=3G --conf "spark.executor.extraClassPath=-XX:MaxPermSize=384m -Dhdp.version=current”  /opt/sparkling-water/current/assembly/build/libs/sparkling-water-assembly_2.11-2.0.0-all.jar
 
 # Install R
 
