@@ -123,6 +123,32 @@ Dependencies
 
 - %sql SELECT count(*) FROM pdf
 
+# Vertica
+
+# Use the vertica-jdbc-8.0.0-1.jar in the lib folder
+
+## Use JDBC Interpreter
+- default.driver	com.vertica.jdbc.Driver
+- default.password	[PASSWD]
+- default.url	jdbc:vertica://[HOST]:[HOST_PORT]/[DB]?user=[USERNAME]&password=[PASSWD]
+- default.user	[USERNAME]
+
+Dependencies
+/opt/zeppelin/current/lib/vertica-jdbc-8.0.0-1.jar
+
+## Test Zeppelin to access Vertica using %jdbc
+- %jdbc
+- SELECT count(*) FROM [SCHEMA].[TABLE]
+
+## Test Zeppelin to access Vertica using %spark
+- %spark
+- sc.version 
+- val pdfv = sqlContext.load("jdbc", Map("url" -> "jdbc:vertica://[HOST]:[PORT]/[DB]?user=[USERNAME]&password=[PASSWD]", "driver" -> "com.vertica.jdbc.Driver", "dbtable" -> "[SCHEMA].[TABLE]", "fetchsize" -> "100") )
+- pdfv.printSchema()
+- pdfv.registerTempTable("pdfv")
+
+- %sql SELECT * FROM pdfv
+
 # References
 https://www.linkedin.com/pulse/running-spark-2xx-cloudera-hadoop-distro-cdh-deenar-toraskar-cfa
 http://www.cloudera.com/documentation/enterprise/5-8-x/topics/cdh_ig_running_spark_on_yarn.html
