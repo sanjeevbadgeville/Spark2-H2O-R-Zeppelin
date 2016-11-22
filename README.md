@@ -80,6 +80,9 @@ zeppelin-0.6.2-bin-all.tgz
 - export SPARK_APP_NAME=zeppelin-cdh
 - export HADOOP_CONF_DIR=/etc/hive/conf
 
+## Run Zeppelin with Spark2, Sparkling-water, and R
+- /opt/zeppelin/current/bin/zeppelin.sh -Pspark-2.0
+
 ## Test Zeppelin Installation
 http://localhost:8080/#/
 
