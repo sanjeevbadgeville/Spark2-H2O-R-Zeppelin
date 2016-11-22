@@ -51,7 +51,7 @@ http://h2o-release.s3.amazonaws.com/sparkling-water/rel-2.0/0/sparkling-water-2.
 - MASTER=yarn
 
 ## Test Sparkling-Water Installation
-- /opt/spark/current/bin/spark-submit --master=yarn-client --class water.SparklingWaterDriver --conf "spark.yarn.am.extraJavaOptions=-XX:MaxPermSize=384m -Dhdp.version=current"  --driver-memory=8G --num-executors=3 --executor-memory=3G --conf "spark.executor.extraClassPath=-XX:MaxPermSize=384m -Dhdp.version=current”  /opt/sparkling-water/current/assembly/build/libs/sparkling-water-assembly_2.11-2.0.0-all.jar
+- /opt/spark/current/bin/spark-submit --master=yarn-client --class water.SparklingWaterDriver --conf "spark.yarn.am.extraJavaOptions=-XX:MaxPermSize=384m -Dhdp.version=current"  --driver-memory=8G --num-executors=3 --executor-memory=3G --conf "spark.executor.extraClassPath=-XX:MaxPermSize=384m -Dhdp.version=current"  /opt/sparkling-water/current/assembly/build/libs/sparkling-water-assembly_2.11-2.0.0-all.jar
 
 # Install R
 
@@ -59,9 +59,9 @@ $ sudo yum install R
 $ sudo yum install libxml2-devel
 $ sudo yum install libcurl-devel
 
-- install.packages('knitr', dependencies = TRUE)
-- install.packages('data.table', dependencies = TRUE)
-- install.packages('curl', dependencies=TRUE)
+- install.packages('knitr', repos="http://cran.rstudio.com/",dependencies = TRUE)
+- install.packages('data.table', repos="http://cran.rstudio.com/",dependencies = TRUE)
+- install.packages('curl', repos="http://cran.rstudio.com/",dependencies=TRUE)
 - install.packages("httr", repos="http://cran.rstudio.com/", dependencies=TRUE)
 - install.packages("plotly", repos="http://cran.rstudio.com/", dependencies=TRUE)
 - install.packages("devtools", repos="http://cran.rstudio.com/", dependencies=TRUE)
