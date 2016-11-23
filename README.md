@@ -155,6 +155,7 @@ Dependencies
 
 # References
 https://www.linkedin.com/pulse/running-spark-2xx-cloudera-hadoop-distro-cdh-deenar-toraskar-cfa
+https://github.com/h2oai/sparkling-water/blob/master/DEVEL.md#SparklingWaterZeppelin
 http://www.cloudera.com/documentation/enterprise/5-8-x/topics/cdh_ig_running_spark_on_yarn.html
 - find IPAddress: docker inspect [container_id] | grep IPAddress
 - sudo iptables -t nat -A DOCKER -p tcp --dport 8080 -j DNAT --to-destination [container_ip]:8080
