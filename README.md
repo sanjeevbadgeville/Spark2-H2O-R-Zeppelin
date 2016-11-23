@@ -79,6 +79,7 @@ zeppelin-0.6.2-bin-all.tgz
 - export SPARK_HOME=/opt/spark/current
 - export SPARK_APP_NAME=zeppelin-cdh
 - export HADOOP_CONF_DIR=/etc/hive/conf
+- export SPARK_SUBMIT_OPTIONS="--packages ai.h2o:sparkling-water-examples_2.11:2.0.0"
 
 ## Run Zeppelin with Spark2, Sparkling-water, and R
 - /opt/zeppelin/current/bin/zeppelin.sh -Pspark-2.0
