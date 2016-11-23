@@ -50,6 +50,9 @@ http://h2o-release.s3.amazonaws.com/sparkling-water/rel-2.0/0/sparkling-water-2.
 - SPARK_HOME=/opt/spark/current
 - MASTER=yarn
 
+## Copy Sparkling-Water Fat jar
+- cp /opt/sparkling-water/current/assembly/build/libs/sparkling-water-assembly_2.11-2.0.0-all.jar  /opt/spark/current/jars
+
 ## Test Sparkling-Water Installation
 - /opt/spark/current/bin/spark-submit --master=yarn-client --class water.SparklingWaterDriver --conf "spark.yarn.am.extraJavaOptions=-XX:MaxPermSize=384m -Dhdp.version=current"  --driver-memory=8G --num-executors=3 --executor-memory=3G --conf "spark.executor.extraClassPath=-XX:MaxPermSize=384m -Dhdp.version=current"  /opt/sparkling-water/current/assembly/build/libs/sparkling-water-assembly_2.11-2.0.0-all.jar
 
@@ -87,13 +90,13 @@ zeppelin-0.6.2-bin-all.tgz
 ## Test Zeppelin Installation
 http://localhost:8080/#/
 
-%spark
-import org.apache.spark.sql._
-val sqlContext = new SQLContext(sc)
-import sqlContext.implicits._
-val df: DataFrame = sc.parallelize(1 to 1000, 100).map(v => IntHolder(Some(v))).toDF
-val hf = hc.asH2OFrame(df)
-val newRdd = hc.asDataFrame(hf)(sqlContext)
+- %spark
+- import org.apache.spark.sql._
+- val sqlContext = new SQLContext(sc)
+- import sqlContext.implicits._
+- val df: DataFrame = sc.parallelize(1 to 1000, 100).map(v => IntHolder(Some(v))).toDF
+- val hf = hc.asH2OFrame(df)
+- val newRdd = hc.asDataFrame(hf)(sqlContext)
 
 # Oracle Access
 
