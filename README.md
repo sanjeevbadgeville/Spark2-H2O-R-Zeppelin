@@ -82,7 +82,7 @@ zeppelin-0.6.2-bin-all.tgz
 - export SPARK_HOME=/opt/spark/current
 - export SPARK_APP_NAME=zeppelin-cdh
 - export HADOOP_CONF_DIR=/etc/hive/conf
-- export SPARK_SUBMIT_OPTIONS="--packages ai.h2o:sparkling-water-examples_2.11:2.0.0"
+- export SPARK_SUBMIT_OPTIONS="--jars /opt/sparkling-water/current/assembly/build/libs/sparkling-water-assembly_2.11-2.0.0-all.jar"
 
 ## Run Zeppelin with Spark2, Sparkling-water, and R
 - /opt/zeppelin/current/bin/zeppelin.sh -Pspark-2.0
@@ -94,9 +94,13 @@ http://localhost:8080/#/
 - import org.apache.spark.sql._
 - val sqlContext = new SQLContext(sc)
 - import sqlContext.implicits._
+- import org.apache.spark.h2o._
+- val h2oContext = H2OContext.getOrCreate(sc) 
+- import h2oContext._ 
+
 - val df: DataFrame = sc.parallelize(1 to 1000, 100).map(v => IntHolder(Some(v))).toDF
-- val hf = hc.asH2OFrame(df)
-- val newRdd = hc.asDataFrame(hf)(sqlContext)
+- val hf = h2oContext.asH2OFrame(df)
+- val newRdd = h2oContext.asDataFrame(hf)(sqlContext)
 
 # Oracle Access
 
