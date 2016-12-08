@@ -167,4 +167,11 @@ http://www.cloudera.com/documentation/enterprise/5-8-x/topics/cdh_ig_running_spa
 - find IPAddress: docker inspect [container_id] | grep IPAddress
 - sudo iptables -t nat -A DOCKER -p tcp --dport 8080 -j DNAT --to-destination [container_ip]:8080
 - sudo iptables -t nat -A POSTROUTING -s [container_ip] -j MASQUERADE -p tcp --dport 8080 -d [container_ip]
+Redhat 6.5 if yum install R fails
+"wget http://mirror.centos.org/centos/6/os/x86_64/Packages/lapack-devel-3.2.1-4.el6.x86_64.rpm
+wget http://mirror.centos.org/centos/6/os/x86_64/Packages/blas-devel-3.2.1-4.el6.x86_64.rpm
+wget http://mirror.centos.org/centos/6/os/x86_64/Packages/texinfo-tex-4.13a-8.el6.x86_64.rpm
+wget http://vault.centos.org/6.2/updates/x86_64/Packages/libicu-devel-4.2.1-9.1.el6_2.x86_64.rpm
+sudo yum localinstall *.rpm
+
 
