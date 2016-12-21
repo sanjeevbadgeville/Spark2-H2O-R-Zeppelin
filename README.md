@@ -104,7 +104,7 @@ http://localhost:8080/#/
 
 # Oracle Access
 
-## Use the ojdbc7.jar in the lib folder as it has the file defaultConnectionProperties.properties file updated with oracle.jdbc.timezonAsRegion=false
+## Use the ojdbc7.jar in the lib folder as it has the file defaultConnectionProperties.properties file updated with oracle.jdbc.timezoneAsRegion=false
 
 ## Use the Postgres Interpreter
 - postgresql.driver.name	oracle.jdbc.driver.OracleDriver
