@@ -160,6 +160,24 @@ Dependencies
 
 - %sql SELECT * FROM pdfv
 
+## Impala
+/opt/zeppelin/current/lib/ojdbc7.jar	
+/tmp/toSratch/2.5.36.1056/ImpalaJDBC41.jar	
+/opt/zeppelin/current/lib/vertica-jdbc-8.0.0-1.jar	
+/tmp/toSratch/2.5.36.1056/commons-logging-1.1.1.jar	
+/tmp/toSratch/2.5.36.1056/hive_metastore.jar	
+/tmp/toSratch/2.5.36.1056/hive_service.jar	
+/tmp/toSratch/2.5.36.1056/httpclient-4.1.3.jar	
+/tmp/toSratch/2.5.36.1056/httpcore-4.1.3.jar	
+/tmp/toSratch/2.5.36.1056/libfb303-0.9.0.jar	
+/tmp/toSratch/2.5.36.1056/libthrift-0.9.0.jar	
+/tmp/toSratch/2.5.36.1056/log4j-1.2.14.jar	
+/tmp/toSratch/2.5.36.1056/ql.jar	
+/tmp/toSratch/2.5.36.1056/slf4j-api-1.5.11.jar	
+/tmp/toSratch/2.5.36.1056/slf4j-log4j12-1.5.11.jar	
+/tmp/toSratch/2.5.36.1056/TCLIServiceClient.jar	
+/tmp/toSratch/2.5.36.1056/zookeeper-3.4.6.jar
+
 # References
 https://www.linkedin.com/pulse/running-spark-2xx-cloudera-hadoop-distro-cdh-deenar-toraskar-cfa
 https://github.com/h2oai/sparkling-water/blob/master/DEVEL.md#SparklingWaterZeppelin
