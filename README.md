@@ -5,18 +5,19 @@ A stack for data mining using Spark2, H2O, R and Zeppelin running on Cloudera Ha
 
 ## Hadoop Version (tested with CDH5.8)
 $hadoop version
-hadoop 2.6.-cdh5.8.0
+  Hadoop 2.6.0-cdh5.11.0
 
 ## Download Spark 
 http://spark.apache.org/downloads.html
-Download Spark: spark-2.0.1-bin-hadoop2.6.tgz
+Download Spark: spark-2.2.0-bin-hadoop2.6.tgz
+wget http://apache.mirrors.ionfish.org/spark/spark-2.2.0/spark-2.2.0-bin-hadoop2.6.tgz
 
 ## Extract Spark2 downloaded file
 - sudo mkdir /opt/spark
 - sudo chown -R cloudera:cloudera /opt/spark
-- cp /mnt/working/spark-2.0.1-bin-hadoop2.6.tgz /opt/spark
-- tar xvzf /opt/spark/spark-2.0.1-bin-hadoop2.6.tgz
--  ln -s /opt/spark/spark-2.0.1-bin-hadoop2.6 /opt/spark/current
+- cp /mnt/working/spark-2.2.0-bin-hadoop2.6.tgz /opt/spark
+- tar xvzf /opt/spark/spark-2.2.0-bin-hadoop2.6.tgz
+-  ln -s /opt/spark/spark-2.2.0-bin-hadoop2.6.tgz /opt/spark/current
 
 ## Update conf/spark-env.sh
 - SPARK_HOME=/opt/spark/current
@@ -24,13 +25,13 @@ Download Spark: spark-2.0.1-bin-hadoop2.6.tgz
 
 ## Update conf/spark-defaults.conf
 - spark.master                       yarn
-- spark.yarn.jars                    hdfs://localhost:8020/user/cloudera/spark-2.0.1-bin-hadoop2.6/*
+- spark.yarn.jars                    hdfs://localhost:8020/user/cloudera/spark-2.2.0-bin-hadoop2.6/*
 
 ## Create HDFS folder /user/cloudera (if not present)
 - sudo -u hdfs hdfs dfs -mkdir /user/cloudera
 - sudo -u hdfs hdfs dfs -chown -R cloudera /user/cloudera
-- hdfs dfs -mkdir spark-2.0.1-bin-hadoop2.6
-- hdfs dfs -copyFromLocal jars/*  spark-2.0.1-bin-hadoop2.6
+- hdfs dfs -mkdir spark-2.2.0-bin-hadoop2.6
+- hdfs dfs -copyFromLocal jars/*  spark-2.2.0-bin-hadoop2.6
 
 ## Test Spark2 Installation
 - $ ./bin/run-example SparkPi 10 --master yarn
@@ -54,7 +55,7 @@ http://h2o-release.s3.amazonaws.com/sparkling-water/rel-2.0/0/sparkling-water-2.
 - cp /opt/sparkling-water/current/assembly/build/libs/sparkling-water-assembly_2.11-2.0.0-all.jar  /opt/spark/current/jars
 
 ## Test Sparkling-Water Installation
-- /opt/spark/current/bin/spark-submit --master=yarn --class water.SparklingWaterDriver --conf "spark.yarn.am.extraJavaOptions=-XX:MaxPermSize=384m -Dhdp.version=current"  --driver-memory=8G --num-executors=3 --executor-memory=3G --conf "spark.executor.extraClassPath=-XX:MaxPermSize=384m -Dhdp.version=current"  /opt/sparkling-water/current/assembly/build/libs/sparkling-water-assembly_2.11-2.0.0-all.jar
+- /opt/spark/current/bin/spark-submit --master=yarn --class water.SparklingWaterDriver --conf "spark.yarn.am.extraJavaOptions=-XX:MaxPermSize=384m -Dhdp.version=current"  --driver-memory=8G --num-executors=3 --executor-memory=3G --conf "spark.executor.extraClassPath=-XX:MaxPermSize=384m -Dhdp.version=current"  /opt/spark/current/jars/sparkling-water-assembly_2.11-2.2.2-all.jar
 
 # Install R
 
@@ -75,14 +76,15 @@ $ sudo yum install libcurl-devel
 
 ## Download Zeppelin 
 https://zeppelin.apache.org/download.html
-zeppelin-0.6.2-bin-all.tgz
+zeppelin-0.7.3-bin-all.tgz
+wget http://mirror.reverse.net/pub/apache/zeppelin/zeppelin-0.7.3/zeppelin-0.7.3-bin-all.tgz
 
 ## Update /opt/zeppelin/current/conf/zeppelin-env.sh
 - export MASTER=yarn
 - export SPARK_HOME=/opt/spark/current
 - export SPARK_APP_NAME=zeppelin-cdh
 - export HADOOP_CONF_DIR=/etc/hive/conf
-- export SPARK_SUBMIT_OPTIONS="--jars /opt/sparkling-water/current/assembly/build/libs/sparkling-water-assembly_2.11-2.0.0-all.jar"
+- export SPARK_SUBMIT_OPTIONS="--jars /opt/spark/current/jars/sparkling-water-assembly_2.11-2.2.2-all.jar"
 
 ## Run Zeppelin with Spark2, Sparkling-water, and R
 - /opt/zeppelin/current/bin/zeppelin.sh -Pspark-2.0
