@@ -87,7 +87,7 @@ wget http://mirror.reverse.net/pub/apache/zeppelin/zeppelin-0.7.3/zeppelin-0.7.3
 - export SPARK_SUBMIT_OPTIONS="--jars /opt/spark/current/jars/sparkling-water-assembly_2.11-2.2.2-all.jar"
 
 ## Run Zeppelin with Spark2, Sparkling-water, and R
-- /opt/zeppelin/current/bin/zeppelin.sh -Pspark-2.0
+- /opt/zeppelin/current/bin/zeppelin.sh -Pspark-2.2
 
 ## Test Zeppelin Installation
 http://localhost:8080/#/
